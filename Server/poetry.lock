@@ -168,6 +168,18 @@ mccabe = ">=0.6,<0.7"
 toml = ">=0.7.1"
 
 [[package]]
+name = "pymysql"
+version = "0.10.1"
+description = "Pure Python MySQL Driver"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.extras]
+ed25519 = ["PyNaCl (>=1.4.0)"]
+rsa = ["cryptography"]
+
+[[package]]
 name = "rfc3986"
 version = "1.4.0"
 description = "Validating URI References per RFC 3986"
@@ -203,6 +215,22 @@ all = ["pytest (==5.2.1)", "multidict (==5.0.0)", "gunicorn", "pytest-cov", "htt
 dev = ["pytest (==5.2.1)", "multidict (==5.0.0)", "gunicorn", "pytest-cov", "httpcore (==0.3.0)", "beautifulsoup4", "pytest-sanic", "pytest-sugar", "pytest-benchmark", "aiofiles", "tox", "black", "flake8", "bandit", "towncrier", "uvloop (>=0.5.3)", "ujson (>=1.35)"]
 docs = ["sphinx (>=2.1.2)", "sphinx-rtd-theme", "recommonmark (>=0.5.0)", "docutils", "pygments"]
 test = ["pytest (==5.2.1)", "multidict (==5.0.0)", "gunicorn", "pytest-cov", "httpcore (==0.3.0)", "beautifulsoup4", "pytest-sanic", "pytest-sugar", "pytest-benchmark", "uvloop (>=0.5.3)", "ujson (>=1.35)"]
+
+[[package]]
+name = "sanic-openapi"
+version = "0.6.2"
+description = "Easily document your Sanic API with a UI."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+sanic = ">=18.12.0"
+
+[package.extras]
+dev = ["black (==19.3b0)", "flake8 (==3.7.7)", "isort (==4.3.19)", "coverage (==4.5.3)", "pytest (==4.6.2)", "pytest-cov (==2.7.1)", "pytest-html (==1.20.0)", "pytest-runner (==5.1)", "tox (==3.12.1)", "recommonmark (==0.5.0)", "sphinx (==2.1.2)", "sphinx-rtd-theme (==0.4.3)"]
+doc = ["recommonmark (==0.5.0)", "sphinx (==2.1.2)", "sphinx-rtd-theme (==0.4.3)"]
+test = ["coverage (==4.5.3)", "pytest (==4.6.2)", "pytest-cov (==2.7.1)", "pytest-html (==1.20.0)", "pytest-runner (==5.1)", "tox (==3.12.1)"]
 
 [[package]]
 name = "six"
@@ -263,7 +291,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "51282380433283a15b6e5c22900946b994ae716891ce2e64a7554694577c438f"
+content-hash = "dc5829addb0c22d2bafbde91636c77ab78b944c57952162558e0d378560e75d4"
 
 [metadata.files]
 aiofiles = [
@@ -389,6 +417,10 @@ pylint = [
     {file = "pylint-2.6.0-py3-none-any.whl", hash = "sha256:bfe68f020f8a0fece830a22dd4d5dddb4ecc6137db04face4c3420a46a52239f"},
     {file = "pylint-2.6.0.tar.gz", hash = "sha256:bb4a908c9dadbc3aac18860550e870f58e1a02c9f2c204fdf5693d73be061210"},
 ]
+pymysql = [
+    {file = "PyMySQL-0.10.1-py2.py3-none-any.whl", hash = "sha256:44f47128dda8676e021c8d2dbb49a82be9e4ab158b9f03e897152a3a287c69ea"},
+    {file = "PyMySQL-0.10.1.tar.gz", hash = "sha256:263040d2779a3b84930f7ac9da5132be0fefcd6f453a885756656103f8ee1fdd"},
+]
 rfc3986 = [
     {file = "rfc3986-1.4.0-py2.py3-none-any.whl", hash = "sha256:af9147e9aceda37c91a05f4deb128d4b4b49d6b199775fd2d2927768abdc8f50"},
     {file = "rfc3986-1.4.0.tar.gz", hash = "sha256:112398da31a3344dc25dbf477d8df6cb34f9278a94fee2625d89e4514be8bb9d"},
@@ -396,6 +428,9 @@ rfc3986 = [
 sanic = [
     {file = "sanic-20.9.1-py3-none-any.whl", hash = "sha256:0c6949fe55501d8648f1cab77efa71685f7dda48368c7e03e8342fd794dda8cf"},
     {file = "sanic-20.9.1.tar.gz", hash = "sha256:8687db10f11942b3163e789af80951f5b85bde02f752acbc5073b985bba6e01a"},
+]
+sanic-openapi = [
+    {file = "sanic-openapi-0.6.2.tar.gz", hash = "sha256:0ddd11983443d4136ef3e93146cbf89a7196533eb198d72f7489b840cf4016c4"},
 ]
 six = [
     {file = "six-1.15.0-py2.py3-none-any.whl", hash = "sha256:8b74bedcbbbaca38ff6d7491d76f2b06b3592611af620f8426e82dddb04a5ced"},

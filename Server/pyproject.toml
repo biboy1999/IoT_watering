@@ -7,6 +7,8 @@ authors = ["Your Name <you@example.com>"]
 [tool.poetry.dependencies]
 python = "^3.8"
 sanic = "^20.9.1"
+PyMySQL = "^0.10.1"
+sanic-openapi = "^0.6.2"
 
 [tool.poetry.dev-dependencies]
 autopep8 = "^1.5.4"

@@ -6,11 +6,13 @@ services:
       context: ./Database
       dockerfile: Dockerfile
     environment:
-      - MYSQL_USER=backend
-      - MYSQL_PASSWORD=devonly
-      - MYSQL_ROOT_PASSWORD=toor
+      - MYSQL_USER=water
+      - MYSQL_PASSWORD=no_water_for_you
+      - MYSQL_ROOT_PASSWORD=superpapaya
       - MYSQL_ROOT_HOST=%
       - MYSQL_DATABASE=auto_water
+    ports:
+      - "3306:3306"
     #volumes:
     #  - /var/backend/mysql_data:/var/lib/mysql:rw,delegated
     #  - /var/backend/mysqld.sock:/var/run/mysqld/mysqld.sock
