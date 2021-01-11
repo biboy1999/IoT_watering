@@ -6,9 +6,9 @@ from random import randint
 import schedule
 
 schedule_table = []
-ser = serial.Serial("/dev/ttyACM0")
+ser = serial.Serial("/dev/ttyACM0", 9600)
 def water():
-    ser.writelines("1")
+    ser.write(b"1")
     pass
 
 if __name__ == "__main__":
@@ -16,7 +16,7 @@ if __name__ == "__main__":
         try:
             schedule.run_pending()
 
-            line = ser.readline().deocde().strip()
+            line = ser.readline().decode().strip()
             dirt_hum, air_hum, air_temp = line.split(",")
             json_data = {}
             json_data["iot_id"] = 1
@@ -32,5 +32,6 @@ if __name__ == "__main__":
                 for time in schedule_table:
                     schedule.every().day.at(time).do(water)
             sleep(1)
-        except:
+        except Exception as ex:
+            print(ex)
             pass
