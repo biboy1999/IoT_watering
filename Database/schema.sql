@@ -3,10 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Generation Time: Dec 16, 2020 at 08:55 AM
+-- Generation Time: Jan 05, 2021 at 03:12 AM
 -- Server version: 10.5.8-MariaDB-1:10.5.8+maria~focal
 -- PHP Version: 7.4.11
 
+SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -28,15 +29,16 @@ USE `auto_water`;
 --
 -- Table structure for table `record`
 --
--- Creation: Dec 16, 2020 at 08:50 AM
--- Last update: Dec 16, 2020 at 08:53 AM
+-- Creation: Jan 05, 2021 at 03:11 AM
+-- Last update: Jan 05, 2021 at 03:11 AM
 --
 
 CREATE TABLE `record` (
   `ID` int(11) NOT NULL,
   `IOT_ID` int(11) DEFAULT NULL,
-  `temp` float DEFAULT NULL,
-  `hum` float DEFAULT NULL,
+  `air_temp` float DEFAULT NULL,
+  `air_hum` float DEFAULT NULL,
+  `dirt_hum` float NOT NULL,
   `ts` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -44,20 +46,19 @@ CREATE TABLE `record` (
 -- Dumping data for table `record`
 --
 
-INSERT INTO `record` (`ID`, `IOT_ID`, `temp`, `hum`, `ts`) VALUES
-(1, 1, 32.8, 58.3, '2020-12-16 08:53:10'),
-(2, 1, 33.2, 56.4, '2020-12-16 08:54:10'),
-(3, 1, 33.8, 55.3, '2020-12-16 08:55:10'),
-(4, 1, 34, 50.3, '2020-12-16 08:56:10'),
-(5, 1, 33.1, 48.2, '2020-12-16 08:57:10');
+INSERT INTO `record` (`ID`, `IOT_ID`, `air_temp`, `air_hum`, `dirt_hum`, `ts`) VALUES
+(1, 1, 32.8, 58.3, 32.5, '2021-01-05 03:11:27'),
+(2, 1, 33.2, 56.4, 55.6, '2021-01-05 03:11:31'),
+(3, 1, 33.8, 55.3, 87.6, '2021-01-05 03:11:36'),
+(4, 1, 34, 50.3, 23.8, '2021-01-05 03:11:39'),
+(5, 1, 33.1, 48.2, 56.4, '2021-01-05 03:11:42');
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `setting`
 --
--- Creation: Dec 16, 2020 at 08:47 AM
--- Last update: Dec 16, 2020 at 08:55 AM
+-- Creation: Dec 22, 2020 at 03:01 AM
 --
 
 CREATE TABLE `setting` (
@@ -91,6 +92,7 @@ ALTER TABLE `record`
 --
 ALTER TABLE `record`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+SET FOREIGN_KEY_CHECKS=1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
